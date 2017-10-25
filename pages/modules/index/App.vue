@@ -1,7 +1,7 @@
 <style lang="scss">
 </style>
 <template>
-  <h1>hi shubang</h1>
+  <h1>hi webpack vue</h1>
 </template>
 <script>
   export default {
