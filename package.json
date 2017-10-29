@@ -44,7 +44,6 @@
     "eslint-config-vue": "2.0.2",
     "eventsource-polyfill": "^0.9.6",
     "express": "^4.15.2",
-    "extract-text-webpack-plugin": "^1.0.1",
     "file-loader": "0.11.2",
     "glob": "^7.1.1",
     "graphql-tag": "^2.4.2",
@@ -80,7 +79,6 @@
     "vue-style-loader": "^3.0.1",
     "vue-template-compiler": "2.3.3",
     "vuex": "2.3.1",
-    "webpack": "^1.15.0",
     "webpack-dev-middleware": "^1.10.1",
     "webpack-hot-middleware": "^2.17.1",
     "webpack-merge": "^0.8.3",
@@ -88,18 +86,19 @@
     "webpack-zepto": "0.0.1"
   },
   "devDependencies": {
-    "@mapbox/stylelint-processor-arbitrary-tags": "^0.1.1",
     "babel-plugin-transform-es2015-modules-commonjs": "6.24.1",
     "babel-preset-es2017": "6.24.1",
     "css-properties-sorting": "^1.0.3",
     "eslint-config-vue": "2.0.2",
     "eslint-plugin-vue": "2.1.0",
+    "extract-text-webpack-plugin": "^3.0.2",
     "stylelint": "^8.1.1",
     "stylelint-order": "^0.6.0",
     "stylelint-processor-html": "^1.0.0",
     "stylelint-scss": "^2.1.0",
     "stylelint-webpack-plugin": "^0.9.0",
     "validate-commit-msg": "^2.14.0",
-    "web-storage-cache": "^1.0.3"
+    "web-storage-cache": "^1.0.3",
+    "webpack": "^3.8.1"
   }
 }
