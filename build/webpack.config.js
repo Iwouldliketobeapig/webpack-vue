@@ -71,25 +71,33 @@ let config = {
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract("style", "css")
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
       },
       {
         test: /\.scss$/,
-        loader: "style!css!postcss!sass",
+        use: [
+          "style-loader",
+          "css-loader",
+          "postcss-loader",
+          "sass-loader"
+        ],
         exclude: /node_modules/
       },
       {
         test: /\.html$/,
-        loader: "vue-html",
+        loader: "vue-html-loader",
         exclude: /node_modules/
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: "file"
+        loader: "file-loader"
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: "file"
+        loader: "file-loader"
       }
     ]
   },
