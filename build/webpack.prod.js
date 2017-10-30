@@ -40,8 +40,10 @@ let config = {
   },
   devtool: false,
   resolve: {
-    extensions: ["", ".js", ".vue"],
-    fallback: [path.join(root, "node_modules")],
+    extensions: [".js", ".vue"],
+    modules: [
+      path.join(root, "node_module")
+    ],
     alias: {
       "pages": path.resolve(root, "pages"),
       "assets": path.resolve(root, "pages/assets"),
@@ -50,9 +52,6 @@ let config = {
       "common": path.resolve(root, "pages/common"),
       vue: "vue/dist/vue.js"
     }
-  },
-  resolveLoader: {
-    fallback: [path.join(root, "node_modules")]
   },
   module: {
     loaders: [
@@ -63,31 +62,39 @@ let config = {
       },
       {
         test: /\.(js|es6)$/,
-        loaders: ["strip-loader?strip[]=console.log,strip[]=console.warn", "babel"],
+        loaders: ["strip-loader?strip[]=console.log,strip[]=console.warn", "babel-loader"],
         exclude: /node_modules/
       },
       {
         test: /\.json$/,
-        loader: "json",
+        loader: "json-loader",
         exclude: /node_modules/
       },
       {
         test: /\.css$/,
-        loader: ExtractTextPlugin.extract("style", "css")
+        use: ExtractTextPlugin.extract({
+          fallback: "style-loader",
+          use: "css-loader"
+        })
       },
       {
         test: /\.scss$/,
-        loader: "style!css!postcss!sass",
+        use: [
+          "style-loader",
+          "css-loader",
+          "postcss-loader",
+          "sass-loader"
+        ],
         exclude: /node_modules/
       },
       {
         test: /\.html$/,
-        loader: "vue-html",
+        loader: "vue-html-loader",
         exclude: /node_modules/
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: "url",
+        loader: "url-loader",
         query: {
           limit: 8048,
           name: "assets/imgs/[name].[hash:7].[ext]"
@@ -95,19 +102,13 @@ let config = {
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: "url",
+        loader: "url-loader",
         query: {
           limit: 8048,
           name: "assets/fonts/[name].[hash:7].[ext]"
         }
       }
     ]
-  },
-  vue: { // vue 的配置
-    loaders: {
-      css: ExtractTextPlugin.extract("vue-style-loader", "css"),
-      scss: ExtractTextPlugin.extract("vue-style-loader", "css!sass")
-    }
   },
   plugins: [
 
