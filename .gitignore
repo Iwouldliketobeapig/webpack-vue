@@ -16,5 +16,3 @@ yarn-debug.log*
 yarn-error.log*
 yarn.lock
 npm-error.log*
-
-build/dev-server.js
