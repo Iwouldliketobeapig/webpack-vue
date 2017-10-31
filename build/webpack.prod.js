@@ -94,19 +94,27 @@ let config = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        loader: "url-loader",
-        query: {
-          limit: 8048,
-          name: "assets/imgs/[name].[hash:7].[ext]"
-        }
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 8048,
+              name: "assets/imgs/[name].[hash:7].[ext]"
+            }
+          }
+        ]
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        loader: "url-loader",
-        query: {
-          limit: 8048,
-          name: "assets/fonts/[name].[hash:7].[ext]"
-        }
+        use: [
+          {
+            loader: "url-loader",
+            options: {
+              limit: 8048,
+              name: "assets/fonts/[name].[hash:7].[ext]"
+            }
+          }
+        ]
       }
     ]
   },
