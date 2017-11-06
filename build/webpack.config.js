@@ -53,7 +53,7 @@ let config = {
     }
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.vue$/,
         loader: "vue-loader",

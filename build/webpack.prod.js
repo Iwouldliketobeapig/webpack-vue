@@ -54,7 +54,7 @@ let config = {
     }
   },
   module: {
-    loaders: [
+    rules: [
       {
         test: /\.vue$/,
         loader: "vue-loader",
@@ -111,12 +111,9 @@ let config = {
     ]
   },
   plugins: [
-
-    // new CleanWebpackPlugin(["dist"], root),
     new ExtractTextPlugin("css/[name].[contenthash].css", {
       allChunks: true
     }),
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.DefinePlugin({
       "process.env": {
