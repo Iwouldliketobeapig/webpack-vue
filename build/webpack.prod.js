@@ -53,9 +53,6 @@ let config = {
       vue: "vue/dist/vue.js"
     }
   },
-  // resolveLoader: {
-  //   fallback: [path.join(root, "node_modules")]
-  // },
   module: {
     loaders: [
       {
@@ -108,19 +105,11 @@ let config = {
       }
     ]
   },
-  // vue: { // vue 的配置
-  //   loaders: {
-  //     css: ExtractTextPlugin.extract("vue-style-loader", "css"),
-  //     scss: ExtractTextPlugin.extract("vue-style-loader", "css!sass")
-  //   }
-  // },
   plugins: [
-
     // new CleanWebpackPlugin(["dist"], root),
     new ExtractTextPlugin("css/[name].[contenthash].css", {
       allChunks: true
     }),
-    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.DefinePlugin({
       "process.env": {
