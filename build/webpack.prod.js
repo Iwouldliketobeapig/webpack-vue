@@ -42,7 +42,7 @@ let config = {
   resolve: {
     extensions: [".js", ".vue"],
     modules: [
-      path.join(root, "node_module")
+      path.join(root, "node_modules")
     ],
     alias: {
       "pages": path.resolve(root, "pages"),
@@ -53,8 +53,11 @@ let config = {
       vue: "vue/dist/vue.js"
     }
   },
+  // resolveLoader: {
+  //   fallback: [path.join(root, "node_modules")]
+  // },
   module: {
-    rules: [
+    loaders: [
       {
         test: /\.vue$/,
         loader: "vue-loader",
@@ -79,12 +82,7 @@ let config = {
       },
       {
         test: /\.scss$/,
-        use: [
-          "style-loader",
-          "css-loader",
-          "postcss-loader",
-          "sass-loader"
-        ],
+        loader: "style!css!postcss!sass",
         exclude: /node_modules/
       },
       {
@@ -94,34 +92,35 @@ let config = {
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              limit: 8048,
-              name: "assets/imgs/[name].[hash:7].[ext]"
-            }
-          }
-        ]
+        loader: "url-loader",
+        query: {
+          limit: 8048,
+          name: "assets/imgs/[name].[hash:7].[ext]"
+        }
       },
       {
         test: /\.(woff2?|eot|ttf|otf)(\?.*)?$/,
-        use: [
-          {
-            loader: "url-loader",
-            options: {
-              limit: 8048,
-              name: "assets/fonts/[name].[hash:7].[ext]"
-            }
-          }
-        ]
+        loader: "url-loader",
+        query: {
+          limit: 8048,
+          name: "assets/fonts/[name].[hash:7].[ext]"
+        }
       }
     ]
   },
+  // vue: { // vue 的配置
+  //   loaders: {
+  //     css: ExtractTextPlugin.extract("vue-style-loader", "css"),
+  //     scss: ExtractTextPlugin.extract("vue-style-loader", "css!sass")
+  //   }
+  // },
   plugins: [
+
+    // new CleanWebpackPlugin(["dist"], root),
     new ExtractTextPlugin("css/[name].[contenthash].css", {
       allChunks: true
     }),
+    new webpack.optimize.DedupePlugin(),
     new webpack.optimize.OccurrenceOrderPlugin(),
     new webpack.DefinePlugin({
       "process.env": {
