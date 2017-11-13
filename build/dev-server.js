@@ -35,11 +35,8 @@ app.use(proxyMiddleware("^/api/v1/**", {
   target: config.proxy.target
 }));
 
-<<<<<<< HEAD
-=======
 console.log(` proxy on ${config.proxy.target}`);
 
->>>>>>> b3507d81f653085fe317c82e71a7b747504cf93b
 // handle fallback for HTML5 history API
 app.use(require("connect-history-api-fallback")());
 
