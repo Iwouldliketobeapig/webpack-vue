@@ -9,12 +9,15 @@
   }
 </style>
 <template>
-  <div class="index">
-    <h1 class="index-title">dutao</h1>
-  </div>
+  </layouts>
+  </layouts>
 </template>
 <script>
+  import Layouts from "components/layouts";
   export default {
-    name: "index"
+    name: "index",
+    componets: {
+      Layouts
+    }
   }
 </script>

@@ -119,7 +119,7 @@ em,i { font-style: normal;}
 }
 .text-overflow {
   text-overflow: ellipsis; 
-  overflow: hidden; 
+  overflow: hidden;
   white-space: nowrap;
 }
 .hide { display: none;}
