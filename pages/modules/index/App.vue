@@ -9,14 +9,14 @@
   }
 </style>
 <template>
-  </layouts>
+  <layouts>
   </layouts>
 </template>
 <script>
   import Layouts from "components/layouts";
   export default {
     name: "index",
-    componets: {
+    components: {
       Layouts
     }
   }

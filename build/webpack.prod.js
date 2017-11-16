@@ -57,8 +57,7 @@ let config = {
     loaders: [
       {
         test: /\.vue$/,
-        loader: "vue-loader",
-        exclude: /node_modules/
+        loader: "vue-loader"
       },
       {
         test: /\.(js|es6)$/,
@@ -67,8 +66,7 @@ let config = {
       },
       {
         test: /\.json$/,
-        loader: "json-loader",
-        exclude: /node_modules/
+        loader: "json-loader"
       },
       {
         test: /\.css$/,
@@ -79,13 +77,15 @@ let config = {
       },
       {
         test: /\.scss$/,
-        loader: "style!css!postcss!sass",
-        exclude: /node_modules/
+        use: [
+          "style-loader",
+          { loader: 'css-loader', options: { importLoaders: 1 } },
+          "sass-loader"
+        ]
       },
       {
         test: /\.html$/,
         loader: "vue-html-loader",
-        exclude: /node_modules/
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,

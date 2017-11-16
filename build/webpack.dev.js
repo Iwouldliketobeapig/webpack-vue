@@ -29,7 +29,7 @@ const htmls = sourceMap("html");
 let config = {
   entry: Object.assign(entry, {
     vendors: ["vue", "vue-router", "vuex", "axios", "normalize.css",
-      "assets/css/common.css"]
+      "assets/css/common.css", "assets/css/index.scss"]
   }),
   output: {
     path: path.resolve(root, "dist/static"),
@@ -56,17 +56,11 @@ let config = {
     rules: [
       {
         test: /\.vue$/,
-        loader: "vue-loader",
-        exclude: /node_modules/
+        loader: "vue-loader"
       },
       {
         test: /\.(js|es6)$/,
         loader: "babel-loader",
-        exclude: /node_modules/
-      },
-      {
-        test: /\.json$/,
-        loader: "json-loader",
         exclude: /node_modules/
       },
       {
@@ -80,16 +74,13 @@ let config = {
         test: /\.scss$/,
         use: [
           "style-loader",
-          "css-loader",
-          "postcss-loader",
+          { loader: 'css-loader', options: { importLoaders: 1 } },
           "sass-loader"
-        ],
-        exclude: /node_modules/
+        ]
       },
       {
         test: /\.html$/,
-        loader: "vue-html-loader",
-        exclude: /node_modules/
+        loader: "vue-html-loader"
       },
       {
         test: /\.(png|jpe?g|gif|svg)(\?.*)?$/,
@@ -106,7 +97,7 @@ let config = {
       allChunks: true
     }),
     new webpack.HotModuleReplacementPlugin(),
-    new webpack.NoErrorsPlugin(),
+    new webpack.NoEmitOnErrorsPlugin(),
     new webpack.optimize.CommonsChunkPlugin({
       name: "vendors",
       chunks: Object.keys(entry),
