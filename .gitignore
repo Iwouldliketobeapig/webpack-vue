@@ -16,3 +16,4 @@ yarn-debug.log*
 yarn-error.log*
 yarn.lock
 npm-error.log*
+package-lock.json
