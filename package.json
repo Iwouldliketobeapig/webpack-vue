@@ -10,6 +10,9 @@
     "lint": "./node_modules/.bin/eslint --ext .js,.vue pages",
     "commitmsg": "validate-commit-msg"
   },
+  "pre-commit": [
+    "lint"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/Iwouldliketobeapig/webpack-vue.git"
