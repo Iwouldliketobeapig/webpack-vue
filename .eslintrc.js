@@ -32,7 +32,6 @@ module.exports = {
 		}
 	},
 	"rules": {
-		"no-negated-in-lhs": "error",
 		"no-cond-assign": [
 			"error",
 			"except-parens"
@@ -59,7 +58,7 @@ module.exports = {
 		"no-caller": "error",
 		"quotes": [
 			"error",
-			"double"
+			"single"
 		],
 		"no-undef": "error",
 		"no-unused-vars": "error",
