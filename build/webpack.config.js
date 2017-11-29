@@ -3,25 +3,10 @@ var merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const ExtractTextPlugin = require('extract-text-webpack-plugin');
 const Stylelint = require('stylelint-webpack-plugin');
-const glob = require('glob');
 const webpack = require('webpack');
-const assert = require('assert');
-const sourceDir = 'pages';
 const process = require('process');
-
+const sourceMap = require('./webpack.entry');
 const root = process.cwd();
-
-function sourceMap (suffix) {
-  const maps = {};
-  glob.sync(`${sourceDir}/modules/**/*.${suffix}`).forEach(function (url) {
-    const ret = url.match(`${sourceDir}\/modules\/(.*).${suffix}$`);
-    assert(ret);
-
-    maps[ret[1]] = ret[0];
-  });
-
-  return maps;
-};
 
 const entry = sourceMap('js');
 const htmls = sourceMap('html');
