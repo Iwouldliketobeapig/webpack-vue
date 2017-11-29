@@ -1,8 +1,8 @@
-var express = require("express");
-var webpack = require("webpack");
-const config = require("config-lite");
-var proxyMiddleware = require("http-proxy-middleware");
-const webpackConfig = require("./webpack.dev");
+var express = require('express');
+var webpack = require('webpack');
+const config = require('config-lite');
+var proxyMiddleware = require('http-proxy-middleware');
+const webpackConfig = require('./webpack.dev');
 
 // default port where dev server listens for incoming traffic
 var port = parseInt(config.port) + 1;
@@ -13,7 +13,7 @@ var port = parseInt(config.port) + 1;
 var app = express();
 var compiler = webpack(webpackConfig);
 
-var devMiddleware = require("webpack-dev-middleware")(compiler, {
+var devMiddleware = require('webpack-dev-middleware')(compiler, {
   publicPath: webpackConfig.output.publicPath,
   stats: {
     colors: true,
@@ -21,24 +21,24 @@ var devMiddleware = require("webpack-dev-middleware")(compiler, {
   }
 });
 
-var hotMiddleware = require("webpack-hot-middleware")(compiler);
+var hotMiddleware = require('webpack-hot-middleware')(compiler);
 
 // force page reload when html-webpack-plugin template changes
-compiler.plugin("compilation", function (compilation) {
-  compilation.plugin("html-webpack-plugin-after-emit", function (data, cb) {
-    hotMiddleware.publish({ action: "reload" });
+compiler.plugin('compilation', function (compilation) {
+  compilation.plugin('html-webpack-plugin-after-emit', function (data, cb) {
+    hotMiddleware.publish({ action: 'reload' });
     cb();
   });
 });
 
-app.use(proxyMiddleware("^/api/v1/**", {
+app.use(proxyMiddleware('^/api/v1/**', {
   target: config.proxy.target
 }));
 
 console.log(` proxy on ${config.proxy.target}`);
 
 // handle fallback for HTML5 history API
-app.use(require("connect-history-api-fallback")());
+app.use(require('connect-history-api-fallback')());
 
 // serve webpack bundle output
 app.use(devMiddleware);
@@ -48,7 +48,7 @@ app.use(devMiddleware);
 app.use(hotMiddleware);
 
 // serve pure static assets
-// app.use("/dist", express.static("/"));
+// app.use('/dist', express.static('/'));
 
 module.exports = app.listen(port, function (err) {
   if (err) {
@@ -63,7 +63,7 @@ module.exports = app.listen(port, function (err) {
             ( ( | .--. | ) )     .',_ '.      .' _,'.
              '-/ (    ) \\-'     / /' .\\ \\ __ / /' .\\ \\           listen on ${port}
               /   '--'   \\     / /     \\.'  './     \\ \\          here we go ~~~ 
-              \\ ."====". /     .-.     : _  _ :      .-.
+              \\ .'===='. /     .-.     : _  _ :      .-.
                .\\      /'              |(o)(o)|
                  .\\  /'                |      |
                  /.-.-.\\_             /        \\
