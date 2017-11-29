@@ -22,13 +22,13 @@
   </layouts>
 </template>
 <script>
-  import Layouts from "components/layouts";
+  import Layouts from 'components/layouts';
   export default {
-    name: "index",
+    name: 'index',
     components: {
       Layouts
     }
-  }
+  };
 </script>
 <style lang="scss">
   .index{
