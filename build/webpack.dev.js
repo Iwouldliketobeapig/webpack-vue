@@ -3,7 +3,8 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const Stylelint = require('stylelint-webpack-plugin');
 const webpack = require('webpack');
 const sourceMap = require('./webpack.entry');
-let config = require('./webpack.base');
+let config = require('./webpack.base.config');
+const defConfig = require('config-lite');
 const htmls = sourceMap('html');
 
 config.output.filename = 'js/[name].js';
@@ -15,7 +16,8 @@ config = merge(config, {
       template: htmls[key],
       inject: true,
       chunks: ['vendors', key],
-      hash: true
+      hash: true,
+      title: defConfig.title
     });
   })
 }, {

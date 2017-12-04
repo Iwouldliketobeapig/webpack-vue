@@ -5,7 +5,7 @@ const Stylelint = require('stylelint-webpack-plugin');
 const webpack = require('webpack');
 const sourceMap = require('./webpack.entry');
 const root = process.cwd();
-let config = require('./webpack.base');
+let config = require('./webpack.base.config');
 const htmls = sourceMap('html');
 
 config = merge(config, {

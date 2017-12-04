@@ -4,7 +4,7 @@ const HtmlWebpackPlugin = require('html-webpack-plugin');
 const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const sourceMap = require('./webpack.entry');
-let config = require('./webpack.base');
+let config = require('./webpack.base.config');
 const root = process.cwd();
 const htmls = sourceMap('html');
 
