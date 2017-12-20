@@ -40,7 +40,7 @@ const config = {
       },
       {
         test: /\.(js|es6)$/,
-        loader: 'babel-loader', // loaders: ['strip-loader?strip[]=console.log,strip[]=console.warn', 'babel-loader']
+        loader: 'babel-loader',
         exclude: /node_modules/
       },
       {
@@ -53,9 +53,9 @@ const config = {
       {
         test: /\.scss$/,
         use: [
-          'style-loader',
-          { loader: 'css-loader', options: { importLoaders: 1 } },
-          'sass-loader'
+          { loader: 'style-loader' },
+          { loader: 'css-loader' },
+          { loader: 'sass-loader' }
         ]
       },
       {
@@ -81,7 +81,8 @@ const config = {
     ]
   },
   plugins: [
-    new ExtractTextPlugin('css/[name].[contenthash].css', {
+    new ExtractTextPlugin({
+      filename: 'css/[name].[contenthash].css',
       allChunks: true
     }),
     new webpack.optimize.CommonsChunkPlugin({
