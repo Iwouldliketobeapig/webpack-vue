@@ -7,7 +7,6 @@
 ```test
 npm i
 ```
-<<<<<<< HEAD
 - 快速开发
 <table>
   <th>
@@ -29,11 +28,3 @@ npm i
     </tr>
   </tbody>
 </table>
-=======
----
-title: flex布局
-tag: Css
-categories:
-  - 前端
----
->>>>>>> d131623dab5c053f8ad382b3426dd7694f1c84d8
