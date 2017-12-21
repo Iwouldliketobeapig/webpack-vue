@@ -7,9 +7,9 @@
 ```test
 npm i
 ```
-快速开发
-开发 | 命令  
----- | ----
-分离开发| npm run dev
-调试| npm run watch
-发布| npm run build
+| 快速开发 |
+| 开发 | 命令 |
+| ---- | ---- |
+| 分离开发 | npm run dev |
+| 调试| npm run watch |
+| 发布| npm run build |
