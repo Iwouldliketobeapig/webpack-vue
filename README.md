@@ -9,10 +9,10 @@ npm i
 ```
 - 快速开发
 <table>
-  <th>
+  <thead>
     <td>开发环境</td>
     <td>命令</td>
-  </th>
+  </thead>
   <tbody>
     <tr>
       <td>开发</td>
