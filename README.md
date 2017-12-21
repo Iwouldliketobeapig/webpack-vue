@@ -10,5 +10,5 @@ npm i
 ---
 分离开发: npm run dev
 调试: npm run watch
-发布: npm run build
+发布: - npm run build
 ---
