@@ -1,5 +1,5 @@
 # webpack-vue
-这是一个考虑基于前后端分离开发，基于webpack + vue + sass的前端开发架构
+这是一个考虑基于前后端分离开发，基于webpack + vue + sass + es6的前端开发架构
 
 ## 快速使用
 
@@ -63,3 +63,5 @@ npm i
 - 集成eslint,规范js,在commit时检测，不通过不能提交commit,在-.eslintrc配置。
 - 集成stylelint,规范css,在dev和watch检测(会打印报错，不影响代码的提交和编写),在-.stylelintrc中配置
 - 集成validate-commit-msg,规范commit msg信息，commit时检测，在-.vcmrc中配置
+
+[`详细文档`](http://www.hidutao.com/2017/12/23/project/webpack+vue/)
