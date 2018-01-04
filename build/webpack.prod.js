@@ -1,7 +1,6 @@
 const path = require('path');
 var merge = require('webpack-merge');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
-const CleanWebpackPlugin = require('clean-webpack-plugin');
 const webpack = require('webpack');
 const sourceMap = require('./webpack.entry');
 let config = require('./webpack.base.config');
@@ -25,7 +24,6 @@ config = merge(config, {
   })
 }, {
   plugins: [
-    new CleanWebpackPlugin(['dist'], root),
     new webpack.DefinePlugin({
       'process.env': {
         NODE_ENV: '\'production\''
